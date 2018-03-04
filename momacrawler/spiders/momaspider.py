@@ -11,6 +11,6 @@ class MomaspiderSpider(scrapy.Spider):
       url = "https://www.moma.org/calendar/exhibitions/EX_NUM?locale=en".replace("EX_NUM", str(i))
       yield scrapy.Request(url=url, callback=self.parse)
 
-    def parse(self, response):
-      yield { 'description': response.css('meta[name=description]::attr(content)').extract() }
+  def parse(self, response):
+    yield { 'description': response.css('meta[name=description]::attr(content)').extract() }
                 
